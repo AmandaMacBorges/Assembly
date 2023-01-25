@@ -36,7 +36,7 @@ FIM:          hlt
 .endcode
 
 .data
-a:            db      #1Ah
-b:            db      #03h
+a:            db      #04h
+b:            db      #02h
 resultado:    db      #00h
 .enddata
