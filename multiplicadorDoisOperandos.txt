@@ -1,0 +1,29 @@
+00 44 32 ; LDA    #32H
+02 B4 31 ; JZ     #31H
+04 44 33 ; LDA    #33H
+06 B4 31 ; JZ     #31H
+08 44 33 ; LDA    #33H
+0A 00    ; NOT
+0B 50 01 ; ADD    #01H
+0D 54 32 ; ADD    #32H
+0F A4 21 ; JN     #21H
+11 44 33 ; LDA    #33H
+13 50 FF ; ADD    #0FFH
+15 24 33 ; STA    #33H
+17 A4 31 ; JN     #31H
+19 44 34 ; LDA    #34H
+1B 54 32 ; ADD    #32H
+1D 24 34 ; STA    #34H
+1F 84 11 ; JMP    #11H
+21 44 32 ; LDA    #32H
+23 50 FF ; ADD    #0FFH
+25 24 32 ; STA    #32H
+27 A4 31 ; JN     #31H
+29 44 34 ; LDA    #34H
+2B 54 33 ; ADD    #33H
+2D 24 34 ; STA    #34H
+2F 84 21 ; JMP    #21H
+31 F0    ; HLT
+32 1A    ; DB      #1AH
+33 03    ; DB      #03H
+34 00    ; DB      #00H
