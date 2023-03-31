@@ -11,6 +11,47 @@
         lda    restante    ; carrega restante em AC
         jz     FIM         ; se zerou, encerra programa
 
+    TESTE100:
+        lda    valor_100   ; carrega valor_100 em AC
+        not                ; faz compl. C-1 em valor_100
+        add    #01h        ; faz compl. C-2 em valor_100
+        add    restante    ; realizar (rest - 100)
+        jn     TESTE50     ; se for mt grande, pula pra 50
+
+    SOMA100:               ; se a moeda 100 encaixa
+        lda    valor_100   ; carrega valor_100 em AC
+        not                ; faz compl. C-1 em valor_100
+        add    #01h        ; faz compl. C-2 em valor_100
+        add    restante    ; realizar (rest - 100)
+        sta    restante    ; armazena resultado em rest
+
+        lda    qtd_100     ; carrega qtd_100 em AC
+        add    #01h        ; incrementa em 1
+        sta    qtd_100     ; armazena resultado em qtd_100
+
+        jmp    TESTE100    ; refaz loop realizavel
+  
+
+    TESTE50:
+        lda    valor_50    ; carrega valor_50 em AC
+        not                ; faz compl. C-1 em valor_50
+        add    #01h        ; faz compl. C-2 em valor_50
+        add    restante    ; realizar (rest - 50)
+        jn     TESTE25     ; se for mt grande, pula pra 25
+
+    SOMA50:                ; se a moeda 50 encaixa
+        lda    valor_50    ; carrega valor_50 em AC   
+        not                ; faz compl. C-1 em valor_50
+        add    #01h        ; faz compl. C-2 em valor_50
+        add    restante    ; realizar (rest - 50)
+        sta    restante    ; armazena resultado em rest
+        lda    qtd_50      ; carrega qtd_50 em AC
+        add    #01h        ; incrementa em 1
+        sta    qtd_50      ; armazena resultado em qtd_50
+
+        jmp    TESTE50     ; refaz loop realizavel         
+         
+
     TESTE25:
         lda    valor_25    ; carrega valor_25 em AC
         not                ; faz compl. C-1 em valor_25
@@ -29,7 +70,7 @@
         add    #01h        ; incrementa em 1
         sta    qtd_25      ; armazena resultado em qtd_25
 
-        jmp    TESTE25
+        jmp    TESTE25     ; refaz loop realizavel
 
     TESTE10:
         lda    valor_10    ; carrega valor_10 em AC
@@ -101,6 +142,8 @@
     valor_5:   db  #05h
     valor_10:  db  #0Ah
     valor_25:  db  #19h
+    valor_50:  db  #32h
+    valor_100:  db  #64h
 
     ; troco eh 67 em decimais 
     troco:     db  #43h
@@ -110,6 +153,8 @@
     qtd_5:     db  #00h
     qtd_10:    db  #00h
     qtd_25:    db  #00h
+    qtd_50:    db  #00h
+    qtd_100:   db  #00h
 
     ; variavel auxiliar 
     restante:  db  #00h
