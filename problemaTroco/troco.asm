@@ -1,7 +1,3 @@
-;
-;    Problema do Troco
-;
-
 .code
 
     INICIO:
