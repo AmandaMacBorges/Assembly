@@ -91,23 +91,18 @@
 
 .data
 
-    ; vetMoedas [1, 5, 10, 25] em decimais
-    ; vamos declarar os valores separados
     valor_1:   db  #01h
     valor_5:   db  #05h
     valor_10:  db  #0Ah
     valor_25:  db  #19h
 
-    ; troco eh 67 em decimais 
     troco:     db  #43h
 
-    ; iniciar o valor de cada qtd como zero
     qtd_1:     db  #00h
     qtd_5:     db  #00h
     qtd_10:    db  #00h
     qtd_25:    db  #00h
 
-    ; variavel auxiliar 
     restante:  db  #00h
 
-.enddata.enddata
+.enddata
