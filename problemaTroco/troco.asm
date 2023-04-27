@@ -2,7 +2,6 @@
     INICIO:
         lda    troco       ; carrega troco em AC
         sta    restante    ; copiar troco na var aux
-
         lda    restante    ; carrega restante em AC
         jz     FIM         ; se zerou, encerra programa
     TESTE25:
@@ -17,11 +16,9 @@
         add    #01h        ; faz compl. C-2 em valor_25
         add    restante    ; realizar (rest - 25)
         sta    restante    ; armazena resultado em rest
-
         lda    qtd_25      ; carrega qtd_25 em AC 
         add    #01h        ; incrementa em 1
         sta    qtd_25      ; armazena resultado em qtd_25
-
         jmp    TESTE25
     TESTE10:
         lda    valor_10    ; carrega valor_10 em AC
@@ -35,11 +32,9 @@
         add    #01h        ; faz compl. C-2 em valor_10
         add    restante    ; realizar (rest - 10)
         sta    restante    ; armazena resultado em rest
-
         lda    qtd_10      ; carrega qtd_10 em AC
         add    #01h        ; incrementa em 1
         sta    qtd_10      ; armazena resultado em qtd_10
-
         jmp    TESTE10     ; refaz o loop realizavel
     TESTE5:
         lda    valor_5     ; carrega valor_5 em AC
@@ -53,11 +48,9 @@
         add    #01h        ; faz compl. C-2 em valor_5
         add    restante    ; realizar (rest - 5)
         sta    restante    ; armazena resultado em rest
-
         lda    qtd_5       ; carrega qtd_5 em AC
         add    #01h        ; incrementa em 1
         sta    qtd_5       ; armazena resultado em qtd_5
-
         jmp    TESTE5      ; refaz o loop realizavel     
     TESTE1:
         lda    valor_1     ; carrega valor_1 em AC
@@ -69,31 +62,22 @@
         lda    restante    ; carrega restante em AC
         add    #0FFh       ; decrementa rest em 1
         sta    restante    ; armazena resultado em rest
-
         lda    qtd_1       ; carrega qtd_1 em AC
         add    #01h        ; incrementa em 1
         sta    qtd_1       ; armazena resultado em qtd_1
-
         jmp    TESTE1      ; refaz o loop realizavel
-
     FIM:    hlt
-
 .endcode
 
 .data
-
     valor_1:   db  #01h
     valor_5:   db  #05h
     valor_10:  db  #0Ah
     valor_25:  db  #19h
-
     troco:     db  #43h
-
     qtd_1:     db  #00h
     qtd_5:     db  #00h
     qtd_10:    db  #00h
     qtd_25:    db  #00h
-
     restante:  db  #00h
-
 .enddata
